@@ -6,7 +6,6 @@ const url = 'http://127.0.0.1:8080/login';
 const username = 'root'; // Replace with the actual username
 const password = '123456789'; // Replace with the actual password
 require('dotenv').config();
-
 const app = express();
 
 const { authenticateUser } = require('./auth');
@@ -113,5 +112,13 @@ app.get('/favicon.ico', (req, res) => {
 // Start the server
 app.listen(8080, () => {
   console.log('Server listening on http://localhost:8080');
+  (async () => {
+
+      pool.query('SELECT 1 + 1 AS solution', function (error, results, fields) {
+        if (error) throw error;
+        console.log('The solution is:', results[0].solution);
+      });
+    });
+    
 });
 

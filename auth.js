@@ -1,7 +1,7 @@
 const mysql = require('mysql2');
 
 // Create a MySQL connection
-const connection = mysql.createConnection({
+const connection = mysql.createPool({
   host: '127.0.0.1', // Corrected host address
   user: 'root',
   password: '123456789',
@@ -27,5 +27,6 @@ function authenticateUser(username, password) {
     });
   });
 }
-
+module.exports = connection
 module.exports = { authenticateUser };
+
